@@ -1,0 +1,3 @@
+include ':vv'
+include ':app'
+rootProject.name = "ValidatorValue"
