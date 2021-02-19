@@ -82,6 +82,7 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
   <img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example1.gif" width="300"/>
 </p>
 
+#
 - Type 2
 
 Return Result and use Custom message if validate fail
