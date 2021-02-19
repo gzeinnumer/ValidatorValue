@@ -60,7 +60,7 @@ dependencies {
 
 - Type 1
 
-Return Result and use Toast as message
+Return Result and use Toast as message if validate fail
 ```java
 btnValidate.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -86,7 +86,7 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 
 - Type 2
 
-Return Result and use Custom message
+Return Result and use Custom message if validate fail
 ```java
 btnValidate.setOnClickListener(new View.OnClickListener() {
     @Override
