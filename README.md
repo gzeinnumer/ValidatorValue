@@ -82,7 +82,7 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-![](<img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example1.gif"/>)
+![](https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example1.gif")
 
 - Type 2
 
@@ -115,7 +115,7 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-![](<img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example2.gif"/>)
+![](https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example2.gif)
 
 #
 ### Customize
