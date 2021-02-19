@@ -7,20 +7,19 @@
 </h1>
 
 <p align="center">
-    <a><img src="https://img.shields.io/badge/Version-0.4.0-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.0.0-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/kotlin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
-    <p>Simple.</p>
+    <p>Simple validate without IF.</p>
 </p>
 
 ---
 # Content List
 * [Download](#download)
 * [Feature List](#feature-list)
-* [Tech stack and 3rd library](#tech-stack-and-3rd-library)
 * [Usage](#usage)
 * [Example Code/App](#example-codeapp)
 * [Version](#version)
@@ -51,16 +50,12 @@ dependencies {
 
 ---
 # Feature List
-- [x] []()
-
----
-# Tech stack and 3rd library
-- []()
+- [x] [Validate](#validate)
+- [x] [Customize](#customize)
 
 ---
 # Usage
 
-#
 ### **Validate**
 
 - Type 1
@@ -149,7 +144,7 @@ ValidatorValue.with(getApplicationContext()).addValue(isValid, msg);
 ---
 # Example Code/App
 
-[]()
+[MainActivity.java](https://github.com/gzeinnumer/ValidatorValue/blob/master/app/src/main/java/com/gzeinnumer/validatorvalue/MainActivity.java) & [activity_main.xml](https://github.com/gzeinnumer/ValidatorValue/blob/master/app/src/main/res/layout/activity_main.xml)
 
 [Sample Code And App](https://github.com/gzeinnumer/ValidatorValueExample)
 
