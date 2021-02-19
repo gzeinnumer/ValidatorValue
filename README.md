@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/bg.jpg"/>
-</p>
-
 <h1 align="center">
     ValidatorValue
 </h1>
@@ -82,7 +78,9 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-![](https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example1.gif)
+<p align="center">
+  <img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example1.gif" width="300"/>
+</p>
 
 - Type 2
 
@@ -115,7 +113,9 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-![](https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example2.gif)
+<p align="center">
+  <img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example2.gif" width="300"/>
+</p>
 
 #
 ### Customize
