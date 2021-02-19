@@ -13,12 +13,4 @@ public class ValidatorModel {
         this.value = value;
         this.msg = msg;
     }
-
-    @Override
-    public String toString() {
-        return "ValidatorModel{" +
-                "value=" + value +
-                ", msg='" + msg + '\'' +
-                '}';
-    }
 }

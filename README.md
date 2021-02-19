@@ -42,6 +42,10 @@ allprojects {
 dependencies {
   ...
   implementation 'com.github.gzeinnumer:ValidatorValue:version'
+
+  //required for testing
+  implementation 'com.github.gzeinnumer:DialogAndroid:3.0.0'
+  implementation 'com.github.gzeinnumer:SimpleMaterialStyle:2.0.0'
 }
 ```
 
@@ -57,14 +61,89 @@ dependencies {
 # Usage
 
 #
-### **File To Base64.**
-File Image From Path and convert to `Base64` with format `data:image/jpeg;base64,` + `....kagsfkajha`
+### **Validate**
+
+- Type 1
+
+Return Result and use Toast as message
 ```java
-String filePath = "/storage/emulated/0/YourFolder/file_image.jpg";
-val result_9 = MBBase64.convertToBase64FromPath(filePath);
-Log.d(TAG, "onCreate_9: "+ result_8); //   data:image/jpeg;base64,kasgfkaghaksfakgshalgal
+btnValidate.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        String strUsername = edUsername.getText().toString();
+        String strPassword = edPassword.getText().toString();
+
+        ValidatorValue.with(getApplicationContext())
+                .addValue(strUsername, "Minimal 5 Character", 5)
+                .addValue(strPassword, "Minimal 8 Character", 8)
+                .validateListener(new ValidatorValueResult() {
+                    @Override
+                    public void onSuccess() {
+                        Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                        //do something
+                    }
+                });
+    }
+});
 ```
-```kotlin
+
+![](<img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example1.gif"/>)
+
+- Type 2
+
+Return Result and use Custom message
+```java
+btnValidate.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        String strUsername = edUsername.getText().toString();
+        String strPassword = edPassword.getText().toString();
+
+        ValidatorValue.with(getApplicationContext())
+                .addValue(strUsername)
+                .addValue(strPassword, "Minimal 8 Character", 8)
+                .validateListener(new ValidatorValueResult() {
+                    @Override
+                    public void onSuccess() {
+                        Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                    }
+                }, new ValidatorValueMessage() {
+                    @Override
+                    public void onFailed(String msg) {
+                        new InfoDialog(getSupportFragmentManager())
+                                .setDialogType(DialogType.DialogError)
+                                .setTitle("INFO!!!")
+                                .setContent(msg).show();
+                    }
+                });
+    }
+});
+```
+
+![](<img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example2.gif"/>)
+
+#
+### Customize
+
+You can customize `Length` and `Message` for validate and required length
+```java
+String value = "GZeinNumer";
+String msg = "Username Can't Empty";
+int minLength = 5;
+
+ValidatorValue.with(getApplicationContext()).addValue(value);       // msg = "Required correct value" // minLenth = 1
+ValidatorValue.with(getApplicationContext()).addValue(value, msg);  // minLenth = 1
+ValidatorValue.with(getApplicationContext()).addValue(value, msg, minLength);
+```
+
+You can put `boolean` to
+```java
+String value = "GZeinNumer";
+boolean isValid = value.length()>0;
+String msg = "Username Can't Empty";
+
+ValidatorValue.with(getApplicationContext()).addValue(isValid);       // msg = "Required correct value"
+ValidatorValue.with(getApplicationContext()).addValue(isValid, msg);
 ```
 
 ---
@@ -72,7 +151,7 @@ Log.d(TAG, "onCreate_9: "+ result_8); //   data:image/jpeg;base64,kasgfkaghaksfa
 
 []()
 
-[Sample Code And App](https://github.com/gzeinnumer/Example)
+[Sample Code And App](https://github.com/gzeinnumer/ValidatorValueExample)
 
 ---
 # Version

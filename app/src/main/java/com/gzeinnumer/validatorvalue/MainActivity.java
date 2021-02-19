@@ -1,17 +1,18 @@
 package com.gzeinnumer.validatorvalue;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.gzeinnumer.da.constant.DialogType;
+import com.gzeinnumer.da.dialog.infoDialog.InfoDialog;
 import com.gzeinnumer.vv.ValidatorValue;
 import com.gzeinnumer.vv.ValidatorValueMessage;
 import com.gzeinnumer.vv.ValidatorValueResult;
-import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         edPassword = findViewById(R.id.ed_password);
         btnValidate = findViewById(R.id.btn_validate);
 
- //        sample1();
+//         sample1();
         sample2();
 
     }
@@ -40,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 String strPassword = edPassword.getText().toString();
 
                 ValidatorValue.with(getApplicationContext())
-                        .addValue(strUsername.length()>10)
-//                        .addValue(strUsername, "Minimal 5 Character", 5)
+                        .addValue(strUsername, "Minimal 5 Character", 5)
                         .addValue(strPassword, "Minimal 8 Character", 8)
                         .validateListener(new ValidatorValueResult() {
                             @Override
@@ -61,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 String strPassword = edPassword.getText().toString();
 
                 ValidatorValue.with(getApplicationContext())
-                        .addValue(strUsername)
-//                        .addValue(strUsername, "Minimal 5 Character")
-                        .addValue(strPassword, "Minimal 8 Character", 8)
+                        .addValue(strUsername.length() > 0)
+                        .addValue(strPassword.length() > 7, "Minimal 8 Character")
                         .validateListener(new ValidatorValueResult() {
                             @Override
                             public void onSuccess() {
@@ -72,7 +71,10 @@ public class MainActivity extends AppCompatActivity {
                         }, new ValidatorValueMessage() {
                             @Override
                             public void onFailed(String msg) {
-                                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                                new InfoDialog(getSupportFragmentManager())
+                                        .setDialogType(DialogType.DialogError)
+                                        .setTitle("INFO!!!")
+                                        .setContent(msg).show();
                             }
                         });
             }

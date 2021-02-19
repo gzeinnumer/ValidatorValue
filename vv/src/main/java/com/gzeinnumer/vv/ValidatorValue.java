@@ -2,7 +2,6 @@ package com.gzeinnumer.vv;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,9 +18,9 @@ public class ValidatorValue {
         return singleton;
     }
 
-    private Context context;
+    private final Context context;
 
-    private List<ValidatorModel> list;
+    private final List<ValidatorModel> list;
 
     public ValidatorValue(Context context) {
         this.context = context;
@@ -53,16 +52,10 @@ public class ValidatorValue {
         return this;
     }
 
-    public static final String TAG = "ValidatorVa_lue";
-
     public void validateListener(ValidatorValueResult callBack) {
-        Log.d(TAG, "validateListener: " + list.toString());
-
         for (int i = 0; i < list.size(); i++) {
             if (!list.get(i).value) {
                 String msg = list.get(i).msg;
-                if (msg.equals("Required correct value"))
-                    msg = "Index "+i+" "+list.get(i).msg;
                 Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -74,8 +67,6 @@ public class ValidatorValue {
         for (int i = 0; i < list.size(); i++) {
             if (!list.get(i).value) {
                 String msg = list.get(i).msg;
-                if (msg.equals("Required correct value"))
-                    msg = "Index "+i+" "+list.get(i).msg;
                 callBack.onFailed(msg);
                 return;
             }
