@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.0.0-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/kotlin-Suport-green?logo=kotlin&style=flat"></a>
@@ -64,6 +64,8 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
         String strUsername = edUsername.getText().toString();
         String strPassword = edPassword.getText().toString();
 
+        // If you want to hide default `Toast` use this.
+        //ValidatorValue.with()
         ValidatorValue.with(getApplicationContext())
                 .addValue(strUsername, "Minimal 5 Character", 5)
                 .addValue(strPassword, "Minimal 8 Character", 8)
@@ -76,7 +78,6 @@ btnValidate.setOnClickListener(new View.OnClickListener() {
                 });
     }
 });
-```
 
 <p align="center">
   <img src="https://github.com/gzeinnumer/ValidatorValue/blob/master/preview/example1.gif" width="300"/>
@@ -153,6 +154,8 @@ ValidatorValue.with(getApplicationContext()).addValue(isValid, msg);
 # Version
 - **1.0.0**
   - First Release
+- **1.1.0**
+  - Hide or Display Message
 
 ---
 # Contribution

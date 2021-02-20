@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         edPassword = findViewById(R.id.ed_password);
         btnValidate = findViewById(R.id.btn_validate);
 
-//         sample1();
-        sample2();
+        sample1();
+//        sample2();
 
     }
 
@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 String strUsername = edUsername.getText().toString();
                 String strPassword = edPassword.getText().toString();
 
-                ValidatorValue.with(getApplicationContext())
+                ValidatorValue.with()
+//                ValidatorValue.with(getApplicationContext())
                         .addValue(strUsername, "Minimal 5 Character", 5)
                         .addValue(strPassword, "Minimal 8 Character", 8)
                         .validateListener(new ValidatorValueResult() {
