@@ -10,6 +10,12 @@ import java.util.List;
 public class ValidatorValue {
     @SuppressLint("StaticFieldLeak")
     static volatile ValidatorValue singleton = null;
+    private final List<ValidatorModel> list;
+    private Context context;
+
+    public ValidatorValue() {
+        this.list = new ArrayList<>();
+    }
 
     public static ValidatorValue with(Context context) {
         synchronized (ValidatorValue.class) {
@@ -18,9 +24,12 @@ public class ValidatorValue {
         return singleton;
     }
 
-    private final Context context;
-
-    private final List<ValidatorModel> list;
+    public static ValidatorValue with() {
+        synchronized (ValidatorValue.class) {
+            singleton = new ValidatorValue();
+        }
+        return singleton;
+    }
 
     public ValidatorValue(Context context) {
         this.context = context;
@@ -55,8 +64,10 @@ public class ValidatorValue {
     public void validateListener(ValidatorValueResult callBack) {
         for (int i = 0; i < list.size(); i++) {
             if (!list.get(i).value) {
-                String msg = list.get(i).msg;
-                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                if (context != null) {
+                    String msg = list.get(i).msg;
+                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                }
                 return;
             }
         }
